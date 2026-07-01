@@ -1,29 +1,95 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alpaca Ops Alerts — Subscription</title>
-<style>body{font-family:system-ui,sans-serif;max-width:560px;margin:40px auto;padding:0 16px;color:#1a2233}
-.card{border:1px solid #e2e6ee;border-radius:12px;padding:24px}label{font-weight:600}
-input[type=tel]{width:100%;padding:10px;border:1px solid #cbd2e0;border-radius:8px;margin:8px 0 16px}
-.consent{display:flex;gap:8px;align-items:flex-start;margin:12px 0}
-small{color:#5a6478;display:block;margin:8px 0}
-button{background:#111;color:#fff;border:0;border-radius:8px;padding:12px 20px;font-weight:600;cursor:pointer}</style>
-</head><body>
-<h2>Alpaca Ops Alerts — Subscription</h2>
-<div class="card">
-<form onsubmit="alert('Consent disclosure form for Alpaca Ops Alerts. The sole recipient is the system owner.');return false;">
-  <label for="ph">Mobile Phone Number*</label>
-  <input id="ph" type="tel" placeholder="(555) 123-4567" required>
-  <div class="consent">
-    <input type="checkbox" id="consent" required>
-    <label for="consent" style="font-weight:400">Yes, I agree to receive automated operational status alerts
-    (e.g., trading-infrastructure service up/down and safety events) from Alpaca Ops Alerts at the number above.</label>
-  </div>
-  <small><b>Message Frequency:</b> Varies by events — typically zero messages on most days, with occasional alerts when a monitored service changes state.</small>
-  <small><b>Message &amp; Data Rates:</b> Message and data rates may apply.</small>
-  <small><b>Help &amp; Stop:</b> Reply HELP for help or STOP to cancel at any time. By providing your number and checking the box, you agree to receive these text messages. Consent is not required as a condition of any purchase.</small>
-  <small><a href="https://gist.github.com/Maz-Personal/0436b00f4f3ad8d4bf08556f65ad91b4">Terms of Service</a> | <a href="https://gist.github.com/Maz-Personal/a142864298243b0e09ffc019842b0ae1">Privacy Policy</a></small>
-  <button type="submit">Yes, sign me up!</button>
-</form>
-</div>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeOps Alerts — Automated Trading-System Notifications</title>
+  <meta name="description" content="TradeOps Alerts sends the account owner automated operational and risk text-message notifications from their personal algorithmic trading-monitor system.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <div class="brand">TradeOps Alerts<small>Trading-System Monitoring &amp; Alerts</small></div>
+      <nav>
+        <a href="#how">How it works</a>
+        <a href="#signup">Alert sign-up</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <h1>Automated operational &amp; risk alerts for a personal algorithmic trading system.</h1>
+      <p class="lede">TradeOps Alerts is a private monitoring application, operated by an individual, that watches an automated (paper) trading system and its brokerage connection and texts the account owner when something needs attention — a brokerage gateway going offline, a recovery, or a daily-loss safety limit being hit.</p>
+    </div>
+
+    <section id="what">
+      <h2>What this service is</h2>
+      <p>TradeOps Alerts is <strong>not a consumer product and not a marketing service</strong>. It is a personal, self-hosted monitoring system run by its owner. The software watches the owner's own automated trading services and the brokerage API connections they depend on, and sends the owner an <strong>account notification</strong> by SMS when a monitored condition changes.</p>
+      <ul>
+        <li><strong>Sender:</strong> TradeOps Alerts — an automated software system (no human composes the messages).</li>
+        <li><strong>Recipient:</strong> the account owner only — the single individual who runs the system and enrolled their own mobile number.</li>
+        <li><strong>Purpose:</strong> operational health and trading-risk safety notifications.</li>
+      </ul>
+    </section>
+
+    <section id="how">
+      <h2>How it works &amp; what you'll receive</h2>
+      <p>The owner enrolls by submitting their own mobile number (below) and enabling alerts in the application's private configuration. From then on, the system sends automated notifications only when a monitored event occurs. Typical volume is low — up to roughly <strong>10 messages per day</strong>, and often zero on a healthy day.</p>
+      <h3>Example messages</h3>
+      <ul class="msg-list">
+        <li><code>TradeOps Alerts: Brokerage gateway is down (logged out / unreachable). Automated system alert. Reply STOP to opt out.</code></li>
+        <li><code>TradeOps Alerts: Brokerage gateway recovered — back online. Automated notification.</code></li>
+        <li><code>TradeOps Alerts: Daily loss cap reached — automated trading halted. Risk alert.</code></li>
+        <li><code>TradeOps Alerts: Brokerage gateway is down. Reply YES to authorize an automatic restart, or ignore to leave it. Msg &amp; data rates may apply; reply STOP to opt out.</code></li>
+      </ul>
+      <p class="small muted">Some notifications ask the owner to reply <strong>YES</strong> to authorize one specific, pre-defined action (for example, restarting a service). This is a transactional confirmation, not a conversation — the system does not chat.</p>
+    </section>
+
+    <section id="signup">
+      <h2>SMS alert sign-up</h2>
+      <div class="card">
+        <p class="small muted" style="margin-top:0">Enrollment is for the system owner enabling alerts to their own number. This form records opt-in consent for automated account-notification texts from TradeOps Alerts.</p>
+        <form action="#" method="post" onsubmit="return false;">
+          <div class="field">
+            <label for="phone">Mobile number</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+1 (555) 555-5555" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label class="consent" for="consent">
+              <input id="consent" name="consent" type="checkbox">
+              <span>I consent to receive automated operational and risk-alert text messages from
+              <strong>TradeOps Alerts</strong> at the mobile number I provided. Message frequency
+              varies (typically up to ~10 messages/day). <strong>Message and data rates may apply.</strong>
+              Reply <strong>STOP</strong> to opt out at any time, or <strong>HELP</strong> for help.
+              I have read and agree to the <a href="terms.html">Terms of Service</a> and
+              <a href="privacy.html">Privacy Policy</a>.</span>
+            </label>
+          </div>
+          <button class="submit" type="submit">Yes, enroll this number for alerts</button>
+          <p class="form-note">Consent is not a condition of any purchase. You can opt out at any time by replying <strong>STOP</strong>. Reply <strong>HELP</strong> for help. Msg &amp; data rates may apply.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">Questions about these alerts or this service: <a href="mailto:maz.zabaneh@gmail.com">maz.zabaneh@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="row">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:maz.zabaneh@gmail.com">Contact</a>
+      </div>
+      <div>&copy; 2026 TradeOps Alerts — a personal trading-system monitoring project. Automated account-notification messaging only; no marketing.</div>
+    </div>
+  </footer>
+</body>
+</html>
